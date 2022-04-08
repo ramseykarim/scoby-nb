@@ -1,3 +1,6 @@
+# For this particular project, I don't want the HTML files on the repository
+*.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
