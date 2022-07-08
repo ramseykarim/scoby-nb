@@ -142,6 +142,8 @@ call. I did this here through the dictionary "extra_kwargs", but you can also
 just do
 >>> catr.get_FUV_flux(map_function, illumination_distance,
     extremely_large=True, reduce_func=False)
+If you are doing a small map, the reduce_func keyword should not be given
+    (i.e., don't just set it to True)
 
 """
 # Get the median radiation field value and uncertainty
