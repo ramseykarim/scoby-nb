@@ -84,7 +84,7 @@ else:
         """
         Make a new memmap of inverse distance
         """
-        inv_dist = np.memmap("/home/ramsey/Downloads/INVDIST_MEMMAP_oktodelete.dat", dtype=np.float64, mode='w+', shape=(len(catalog_df), *wcs_obj.array_shape))
+        inv_dist = np.memmap(os.path.join(scoby.config.temp_dir, "INVDIST_MEMMAP_oktodelete.dat"), dtype=np.float64, mode='w+', shape=(len(catalog_df), *wcs_obj.array_shape))
         print(f"Solving inverse distance for {len(coords)} stars over a {wcs_obj.array_shape} grid:")
         from astropy.utils.console import ProgressBar # can put this at the top of code
         # Use ProgressBar to track inverse distance cube creation
@@ -163,9 +163,9 @@ if extremely_large:
 if extremely_large:
     # /home/ramsey/Downloads/ is my "temp_dir", which is set in config.py. Replace that with your temp_dir
     # You can set a temp_dir in config.py, but it will try to find your Downloads folder by default
-    stresolver_memmap = "/home/ramsey/Downloads/STRESOLVER_MEMMAP_oktodelete.dat"
-    if os.path.exists(stresolver_memmap):
-        os.remove(stresolver_memmap)
+    stresolver_memmap_filename = os.path.join(scoby.config.temp_dir, "STRESOLVER_MEMMAP_oktodelete.dat")
+    if os.path.exists(stresolver_memmap_filename):
+        os.remove(stresolver_memmap_filename)
 
 
 # This is the result map! Median of all realizations
